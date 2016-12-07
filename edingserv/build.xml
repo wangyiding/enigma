@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="edingserv">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="C:/Users/eding/AppData/Local/MyEclipse 2015 CI/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="JAXB 2.2.6 Libraries.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/41/0/.cp/lib/ri/2.2.6/jaxb-api.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/41/0/.cp/lib/ri/2.2.6/jaxb-impl.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/41/0/.cp/lib/ri/2.2.6/jaxb-xjc.jar"/>
+    </path>
+    <path id="JavaEE 6.0 Generic Library.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/bean-validator.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.annotation.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.ejb.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.enterprise.deploy.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.jms.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.management.j2ee.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.persistence.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.resource.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.security.auth.message.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.security.jacc.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.servlet.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.servlet.jsp.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/javax.transaction.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/jaxb-api-osgi.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/jsr311-api.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/mail.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/webservices-api-osgi.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/EE_6/weld-osgi-bundle.jar"/>
+    </path>
+    <path id="Web App Libraries.libraryclasspath">
+        <pathelement location="WebRoot/WEB-INF/lib/commons-dbutils-1.1.fixed.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/ezmorph-1.0.3.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/json-lib-2.1.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/mysql-connector-java-5.1.7-bin.jar"/>
+        <pathelement location="WebRoot/WEB-INF/lib/quercus.jar"/>
+    </path>
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="JSTL 1.2.1 Library.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/JSTL1.2.1/lib/javax.servlet.jsp.jstl.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.j2eedt.core_13.0.0.me201406122219/data/libraryset/JSTL1.2.1/lib/jstl-impl.jar"/>
+    </path>
+    <path id="JAX-RS 1.1 Libraries (Project Jersey 1.4).libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.ws_13.0.0.me201406190457/lib/jersey/1.4/jersey-core-1.4.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.ws_13.0.0.me201406190457/lib/jersey/1.4/jsr311-api-1.1.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.ws_13.0.0.me201406190457/lib/jersey/1.4/jersey-server-1.4.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/com.genuitec.eclipse.ws_13.0.0.me201406190457/lib/jersey/1.0/asm-3.1.jar"/>
+    </path>
+    <path id="Spring 3.1.1 Libraries.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.aop-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.asm-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.aspects-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.beans-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.context-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.context.support-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.core-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.expression-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.instrument-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.instrument.tomcat-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/aopalliance-1.0.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/aspectjweaver-1.6.9.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/cglib-nodep-2.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/commons-pool-1.5.3.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/commons-collections-3.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/commons-logging-1.1.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/log4j-1.2.16.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.jdbc-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.orm-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.transaction-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/c3p0-0.9.1.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/commons-dbcp-1.4.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.jms-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.oxm-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.web-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.web.portlet-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.web.servlet-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/dist/org.springframework.web.struts-3.1.1.RELEASE.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/commons-beanutils-1.7.0.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/commons-fileupload-1.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/commons-httpclient-3.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/49/0/.cp/data/3.1/deps/commons-lang-2.5.jar"/>
+    </path>
+    <path id="Hibernate 3.3.2 Libraries.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/core/bytecode/cglib/cglib-2.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/core/bytecode/javassist/javassist-3.9.0.GA.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/core/hibernate3.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/core/required/commons-collections-3.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/core/required/jta-1.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/core/required/log4j-1.2.14.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/core/required/slf4j-api-1.5.8.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/core/required/slf4j-log4j12-1.5.8.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.2/lib/core/antlr-2.7.6.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.2/lib/core/ehcache-1.2.3.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.1/lib/core/dom4j-1.6.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/entitymanager/ejb3-persistence.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/entitymanager/hibernate-annotations.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/entitymanager/hibernate-commons-annotations.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/entitymanager/hibernate-entitymanager.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/44/0/.cp/myeclipse-data/3.3/lib/entitymanager/hibernate-validator.jar"/>
+    </path>
+    <path id="Struts 2.1 Libraries.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/antlr-2.7.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/aopalliance-1.0.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/classworlds-1.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-beanutils-1.7.0.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-chain-1.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-collections-3.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-digester-2.0.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-fileupload-1.2.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-io-1.3.2.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-lang-2.3.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-logging-1.0.4.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-logging-api-1.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/commons-validator-1.3.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/freemarker-2.3.16.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/javassist-3.7.ga.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/json-lib-2.1-jdk15.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/ognl-3.0.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/oro-2.0.8.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/sslext-1.2-0.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/struts2-convention-plugin-2.2.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/struts2-core-2.2.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/struts2-embeddedjsp-plugin-2.2.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/struts2-json-plugin-2.2.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/core/xwork-core-2.2.1.jar"/>
+        <pathelement location="${ECLIPSE_HOME}configuration/org.eclipse.osgi/50/0/.cp/data/2.1/spring/struts2-spring-plugin-2.2.1.jar"/>
+    </path>
+    <path id="edingserv.classpath">
+        <pathelement location="WebRoot/WEB-INF/classes"/>
+        <path refid="JAXB 2.2.6 Libraries.libraryclasspath"/>
+        <path refid="JavaEE 6.0 Generic Library.libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="JSTL 1.2.1 Library.libraryclasspath"/>
+        <path refid="JAX-RS 1.1 Libraries (Project Jersey 1.4).libraryclasspath"/>
+        <path refid="Spring 3.1.1 Libraries.libraryclasspath"/>
+        <path refid="Hibernate 3.3.2 Libraries.libraryclasspath"/>
+        <path refid="Struts 2.1 Libraries.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="WebRoot/WEB-INF/classes"/>
+        <copy includeemptydirs="false" todir="WebRoot/WEB-INF/classes">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="WebRoot/WEB-INF/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="WebRoot/WEB-INF/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="edingserv.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="Test">
+        <java classname="Test" failonerror="true" fork="yes">
+            <classpath refid="edingserv.classpath"/>
+        </java>
+    </target>
+</project>

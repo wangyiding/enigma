@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+ 	 <head>
+       <script type="text/javascript" src="psm/head.js"></script>
+  </head>
+
+  <body>
+  	<div style="padding: 16.6px;background: url('img/noise.png') repeat;">
+  		<h1><b style="text-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);">Edingsoft</b></h1> <lable style="style="text-shadow: 0 1px 0 rgba(255, 255, 255, 0.12)">一丁软件</lable>
+		<div id="loginbtn"><button class="button primary" onclick="javascript:showDevCharm('#logincharm')" >登录</button><button class="button info" onclick="javascript:location.href='users.html'">注册</button></div>
+		<div class="dropdown-button">
+	</div>
+
+	</div>
+   <div class="app-bar">
+	<a class="app-bar-element" href="index.html">Edingsoft</a>
+    <span class="app-bar-divider"></span>
+    <ul class="app-bar-menu">
+         <li>		
+         	<a href="" class="dropdown-toggle"><span class="mif-apps mif-2x"></span>公共服务</a>
+        	<ul class="d-menu" data-role="dropdown">
+        		<li>
+        			<li><a href="score.html"><span class="mif-cny"></span> 积分服务</a></li>
+        		</li>
+        	</ul>
+        </li>
+        <li>
+        	<a href="" class="dropdown-toggle"><span class="mif-jsfiddle mif-2x"></span> 技术研究</a>
+        	<ul class="d-menu" data-role="dropdown">
+        		<li>
+        			<li><a href="javascript:showDevCharm('#DevCharm')">Hydra框架</a></li>
+        			<li><a href="">svn服务器租赁</a></li>
+        		</li>
+        	</ul>
+        </li>
+        <li>
+            <a href="" class="dropdown-toggle"><span class="mif-gamepad  mif-2x"></span> 娱乐</a>
+            <ul class="d-menu" data-role="dropdown">
+                <li><a href="" class="dropdown-toggle"><img src="img/ico/wow.png">暴雪系列游戏公益服务器</a>
+                    <ul class="d-menu" data-role="dropdown">
+                        <li><a href="">暗黑2</a></li>
+                        <li><a href="">魔兽世界60</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="">Help</a></li>
+    </ul>
+   </div>
+   	
+   <div id="DevCharm" data-role="charm" data-position="left" >
+   		<h1>Hydra框架</h1><p>
+   		<hr>
+   		自主研发的快速web框架，无session集群设计理念。简约，高效。零配置。
+   		<p>
+   		<font style="color: red;"> 试用用户的用户号以及密码都是"hegang".试用用户不具有上传功能</font>
+   		<!-- 
+   			<button class="button info block-shadow-success  text-shadow">注册</button>
+   		 -->
+   		<a class="glowBtn" onclick="javascript:$.Notify({
+    caption: '提示',
+    content: 'svn开放权限注册已经关闭',
+   	type:'warning'
+});">
+<span class="mif-registered mif-2x">注册</a>
+   		<hr>
+   		<h2>svn地址:<a href="http://www.edingsoft.com:81/svn/hydra/">http://www.edingsoft.com:81/svn/hydra/</a></h2>
+  </div>
+   
+   
+   <div data-role="charm" data-position="left" id='logincharm'>
+   		<h1>Login</h1>
+   		<div class="row cells2">
+   			<div class="cell">
+   				<label>用户名</label>
+   				<div class="input-control text full-size">
+   					<input name="name" id="name">
+   				</div>
+   			</div>
+   		</div>
+   		
+   		<div class="row cells2">
+   			<div class="cell">
+   				<label>密码</label>
+   				<div class="input-control text full-size">
+   					<input type="password" id="passwd" name="passwd">
+   				</div>
+   			</div>
+   		</div>
+   		
+   		<div class="row cells1">
+   			<div class="cell">
+   				<button class="button primary" onclick="doLogin()" >ok</button>
+   			</div>
+   		</div>
+   		
+   </div>
+   
+  </body>
+  <script type="text/javascript">
+  		$(document).ready(
+  			function(){
+  				var loginflag=false;
+  				var cookieInfo=document.cookie;
+  				//loginbtn
+  				var cookieSet=cookieInfo.split(" ");
+  				for(var k=0;k<cookieSet.length;k++){
+  					var pair=cookieSet[k].split("=");
+  					if("userInfo"==pair[0]){
+  						if(pair[1]!=""&&pair[1]!=null){
+  							loginflag=true;
+  						}
+  					}
+  				}
+  				if(loginflag==true){
+  					$("#loginbtn").hide();
+  				}
+  			}
+  		);
+  </script>
+</html>
