@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
+import org.eding.core.common.PagedResult;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -76,12 +77,66 @@ public class CommonDao<T> {
 		}
 	}
 	
-public  void deleteByExample(Object target) throws Exception{
+	public  void deleteByExample(Object target) throws Exception{
 		try{
 			getSession().delete(target);
 		}catch(Exception e){
 			throw e;
 		}
-}
+	}
+	
+	/**
+	 * @param sql   预期执行的sql
+	 * @param page  查询的页数，
+	 * @param pageSize 每页的大小
+	 * @return  分页结果集  map承装
+	 * @throws HibernateException
+	 * @throws SQLException
+	 * @author 王一丁
+	 * 
+	 */
+	public PagedResult selectPagedMapResult(String sql,int page,int pageSize) throws HibernateException, SQLException{
+		int start=0;
+		page=(page<=0?1:page);//修正页码
+		start=(page-1)*pageSize;//起始位置
+		String sqlRight=" limit "+start+","+pageSize+"  ";
+		PagedResult pagedResult=new PagedResult();
+		sql=sql.replaceFirst("select ", "select SQL_CALC_FOUND_ROWS");
+		List resultMapList=selectMapBySql(sql+sqlRight);
+		System.out.println(sql+sqlRight);
+		pagedResult.setResultList(resultMapList);
+		List CountList=selectMapBySql("select FOUND_ROWS() as recCount");
+		pagedResult.setReccount((Long)((Map)(CountList.get(0))).get("reccount"));
+		pagedResult.setMaxPages((pagedResult.getReccount()+pageSize-1)/pageSize);
+		return pagedResult;
+	}
+	
+	/**
+	 * @param sql
+	 * @param page 查询的页数
+	 * @param pageSize 每页的大小
+	 * @return 分页结果集  object 承装
+	 * @throws HibernateException
+	 * @throws SQLException
+	 * @author eding
+	 */
+	public PagedResult<T> selectPagedObjectResult(String sql,int page,int pageSize,Class clazz) throws HibernateException, SQLException{
+		
+		int start=0;
+		page=(page<=0?1:page);//修正页码
+		start=(page-1)*pageSize;//起始位置
+		String sqlRight=" limit "+start+","+pageSize+"  ";
+		PagedResult pagedResult=new PagedResult();
+		sql=sql.replaceFirst("select ", "select SQL_CALC_FOUND_ROWS");
+		List resultMapList= selectObjectBySql(sql+sqlRight,clazz);
+		System.out.println(sql+sqlRight);
+		pagedResult.setResultList(resultMapList);
+		List CountList=selectMapBySql("select FOUND_ROWS() as recCount");
+		pagedResult.setReccount((Long)((Map)(CountList.get(0))).get("reccount"));
+		pagedResult.setMaxPages((pagedResult.getReccount()+pageSize-1)/pageSize);
+		return pagedResult;
+	}
+	
+	
 	
 }	
