@@ -4,15 +4,14 @@
  */
 package test.test;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import net.sf.json.JSONObject;
 
 import org.eding.core.CommonDao;
 import org.eding.core.common.PagedResult;
 import org.eding.pro.po.CUserTbl;
-import org.hibernate.Transaction;
 
 /**
  * @since 2016年12月16日 下午4:20:48
@@ -49,10 +48,14 @@ public class TestDb {
 	
 	public void test1() throws Exception{
 		CommonDao<CUserTbl> commonDao = CommonDao.getInstance();
-		String sql="select * from c_user_tbl";
-		PagedResult<CUserTbl> v1 = commonDao.selectPagedObjectResult(sql, 1, 3,CUserTbl.class);
-		System.out.println(v1.getResultList().get(0).getName());
-		
+		String sql="select * from c_user_tbl where name=? and  passwd=?";
+		//List<Map> l1 = commonDao.selectMapByPreparedSql(sql, "adf");
+		//PagedResult<CUserTbl> v1 = commonDao.selectPagedObject(sql, 1, 3,CUserTbl.class,"adf");
+		List params=new  ArrayList();
+		params.add("adf");
+		params.add("vvs");
+		PagedResult<CUserTbl> l1 = commonDao.selectPagedObjectResultByPreparedSql(sql,params.toArray(), 1, 3, CUserTbl.class);
+		System.out.println(l1.getResultList().get(0).getId());
 	}
 
 }
