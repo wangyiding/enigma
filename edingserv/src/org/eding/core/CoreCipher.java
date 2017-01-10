@@ -1,4 +1,6 @@
 package org.eding.core;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
@@ -29,6 +31,7 @@ public class CoreCipher {
 	            cipher.init(Cipher.ENCRYPT_MODE, key, sr);  
 	            // 加密，并把字节数组编码成字符串  
 	            encryptedData = new sun.misc.BASE64Encoder().encode(cipher.doFinal(data.getBytes()));  
+	            encryptedData=URLEncoder.encode(encryptedData,"utf-8");
 	            
 	        } catch (Exception e) {  
 //	            log.error("加密错误，错误信息：", e);  

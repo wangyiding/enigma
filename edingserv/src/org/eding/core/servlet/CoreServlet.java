@@ -2,6 +2,7 @@ package org.eding.core.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,7 +58,7 @@ public class CoreServlet extends HttpServlet {
 		 	if(request.getCookies()!=null){
 		 		for(Cookie cookie:request.getCookies()){
 		 			if(cookie.getName().equals("userInfo")){
-		 				inData.put("userInfo", CoreCipher.decryptBasedDes(cookie.getValue()));
+		 				inData.put("userInfo", CoreCipher.decryptBasedDes(URLDecoder.decode(cookie.getValue(),"utf-8")));
 		 			}
 				}
 		 	}

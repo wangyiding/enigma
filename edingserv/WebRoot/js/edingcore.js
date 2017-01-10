@@ -1,4 +1,4 @@
-var url='http://127.0.0.1:8080/eds/';
+var url='http://localhost:8080/eds/';
 
 if (typeof JSON !== 'object') {
     JSON = {};
