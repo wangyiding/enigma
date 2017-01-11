@@ -1,10 +1,13 @@
 package org.eding.core.servlet;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -17,6 +20,7 @@ import net.sf.json.JSONObject;
 import org.eding.core.CoreCipher;
 import org.eding.core.standard.BaseBean;
 import org.springframework.context.ApplicationContext;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
@@ -25,6 +29,23 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  *
  */
 public class CoreServlet extends HttpServlet {
+	static String SUFFIX=".c";
+	static{
+		
+		try {
+			Properties properties=new Properties();
+			properties.load(new FileReader(ResourceUtils.getFile("classpath:altconfig.properties")));
+			if(properties.getProperty("suffix")!=null&&!("".equals(properties.getProperty("suffix")))){
+				SUFFIX=properties.getProperty("suffix");
+			}
+		} catch (FileNotFoundException e) {
+				System.out.println("使用默认设置");
+		} catch (IOException e) {
+				e.printStackTrace();
+		}
+		
+	}
+	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -36,7 +57,7 @@ public class CoreServlet extends HttpServlet {
 		String uri=request.getRequestURI();
 		String url=request.getRequestURL().toString();
 		uri=uri.substring(uri.lastIndexOf("/"));
-		uri=uri.substring(0,uri.lastIndexOf(".c")).replaceAll("/", "");
+		uri=uri.substring(0,uri.lastIndexOf(SUFFIX)).replaceAll("/", "");
 		JSONObject jsonIn=JSONObject.fromObject(request.getParameter("params"));
 		Map inData=jsonIn;
 		ApplicationContext context=WebApplicationContextUtils.getWebApplicationContext(request.getSession().getServletContext());
