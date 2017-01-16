@@ -30,6 +30,10 @@ public class CommonDao<T> {
 		return commonDao;
 	}
 	
+	public QueryRunner getQueryRunner() {
+		return queryRunner;
+	}
+
 	public CommonDao CommonDao(){
 		return this.getInstance();
 	}
