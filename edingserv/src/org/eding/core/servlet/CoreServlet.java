@@ -65,7 +65,7 @@ public class CoreServlet extends HttpServlet {
 		String beanName;
 		String functionName;
 		if(pathInfo.length<2){
-			out.println("请勿尝试非法使用本系统");
+			out.println("{code:403,msg:'请勿尝试非法使用本系统'}");
 			out.flush();
 			return ;
 		}
