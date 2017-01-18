@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONObject;
 
 import org.eding.core.CoreCipher;
+import org.eding.core.common.RETINFO;
 import org.eding.core.standard.BaseBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.util.ResourceUtils;
@@ -92,8 +93,8 @@ public class CoreServlet extends HttpServlet {
 		}catch (Exception e) {
 			e.printStackTrace();
 			retMap=new HashMap();
-			retMap.put("retCode", "500");
-			retMap.put("retMsg", e.getMessage());
+			retMap.put(RETINFO.RET_CODE, RETINFO.RET_CODE_ERROR);
+			retMap.put(RETINFO.RET_MSG, e.getMessage());
 			json=JSONObject.fromObject(retMap);
 		}finally{
 			 json=JSONObject.fromObject(retMap); 
