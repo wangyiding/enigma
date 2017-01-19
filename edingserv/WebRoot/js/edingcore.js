@@ -1,5 +1,4 @@
-var url='http://localhost:8080/eds/';
-
+var url='http://www.dianwandashi.com/';
 if (typeof JSON !== 'object') {
     JSON = {};
 }
@@ -345,3 +344,11 @@ function ajx(path,params){
 				}); 
 			 return this.bk;
    		};
+   		
+function includeJavaScript(path){ 
+    var a=document.createElement("script");
+    a.type = "text/javascript"; 
+    a.src=path; 
+    var head=document.getElementsByTagName("head")[0];
+    head.appendChild(a);
+    }
