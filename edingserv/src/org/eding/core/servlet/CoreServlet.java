@@ -85,9 +85,9 @@ public class CoreServlet extends HttpServlet {
 				}
 		 	}
 			
-		 	baseBean.inData=inData;
-		 	baseBean.request=request;
-		 	baseBean.response=response;
+		 	baseBean.inData.set(inData); 
+		 	baseBean.request.set(request);
+		 	baseBean.response.set(response);
 			Class c1=baseBean.getClass();
 			retMap=(Map)c1.getMethod(functionName).invoke(baseBean);
 		}catch (Exception e) {

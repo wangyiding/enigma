@@ -1,4 +1,4 @@
-var url='http://www.dianwandashi.com/';
+var url='http://127.0.0.1/eds/';
 if (typeof JSON !== 'object') {
     JSON = {};
 }
@@ -335,7 +335,7 @@ function ajx(path,params){
  			url:   url+path+".c",
  			data: {params:inData},
  			dataType : "json",
- 			async :false,
+ 			async :true,
  				success: function(e){
  				this.bk=bk=e;
  				},

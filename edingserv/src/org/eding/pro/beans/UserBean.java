@@ -2,6 +2,7 @@ package org.eding.pro.beans;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.Cookie;
 
@@ -24,7 +25,7 @@ public class UserBean extends BaseBean{
 		 */
 		public Map deleteUser(){
 			try{
-				return  userService.deleteUser(inData);
+				return  userService.deleteUser(inData.get());
 				
 			}catch(Exception e){
 				Map<String,String>  map=new HashMap<String, String>();
@@ -36,7 +37,7 @@ public class UserBean extends BaseBean{
 		
 		public Map addUser(){
 			try{
-				return userService.addUser(inData);
+				return userService.addUser(inData.get());
 			}catch(Exception e){
 				Map<String,String>  map=new HashMap<String, String>();
 				map.put(RETINFO.RET_CODE	, RETINFO.RET_CODE_ERROR);
@@ -48,10 +49,10 @@ public class UserBean extends BaseBean{
 		
 		public Map doLogin(){
 			try{
-				 Map retMap=userService.doLogin(inData);
+				 Map retMap=userService.doLogin(inData.get());
 				if(retMap.get(RETINFO.RET_CODE).equals(RETINFO.RET_CODE_SUCCESS)){
 					Cookie cookie=new Cookie("userInfo", (String) retMap.get("userInfo"));
-					response.addCookie(cookie);
+					response.get().addCookie(cookie);
 					retMap.remove("userInfo");
 					retMap.put(RETINFO.RET_MSG, "登陆成功");
 					return retMap;
@@ -68,7 +69,7 @@ public class UserBean extends BaseBean{
 		
 		public Map checkName(){
 			try{
-				return userService.checkName(inData);
+				return userService.checkName(inData.get());
 			}catch(Exception e){
 				Map<String,String>  map=new HashMap<String, String>();
 				map.put(RETINFO.RET_CODE	, RETINFO.RET_CODE_ERROR);
@@ -78,9 +79,19 @@ public class UserBean extends BaseBean{
 		}
 		
 		public Map test(){
-			System.out.println(inData);
+			int k=(int) (Math.random()*100);
+			for(int m=1;m<10;m++){
+				try{
+					Thread.sleep(1000);
+					System.out.println("当前"+Thread.currentThread()+"::::"+k);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				
+			}
+//			System.out.println(inData);
 			Map retMap=new HashMap();
-			retMap.put("name", "eding");
+			retMap.put("name", "继续asdfg了");
 			return retMap;
 		}
 	

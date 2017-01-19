@@ -10,12 +10,13 @@ import org.eding.core.standard.BaseBean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 @Controller
-@Scope("prototype")
+//@Scope("prototype")
+@Scope("singleton")
 public class Edingbean extends BaseBean{
 	public Map test(){
 		TestUser tu=new TestUser();
 		try {
-			BeanUtils.populate(tu, ((Map)inData.get("user")));
+			BeanUtils.populate(tu, ((Map)inData.get().get("user")));
 			System.out.println(tu.getName());
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
@@ -29,6 +30,5 @@ public class Edingbean extends BaseBean{
 		m1.put(RETINFO.RET_CODE, RETINFO.RET_CODE_SUCCESS);
 		m1.put(RETINFO.RET_MSG, "成功");
 		return m1;
-		
 	}
 }
