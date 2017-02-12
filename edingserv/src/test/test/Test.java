@@ -6,12 +6,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import net.sf.json.JSONObject;
+
+import org.eding.core.ContextTool;
 import org.springframework.util.ResourceUtils;
 
 public class Test {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		Properties properties=new Properties();
-		properties.load(new FileReader(ResourceUtils.getFile("classpath:altconfig.properties")));
-		System.setProperty("suffix", properties.getProperty("suffix"));
+		JSONObject ob1 = JSONObject.fromObject("{sss:1}");
+		System.out.println(ob1.get("sss"));
 	}
 }

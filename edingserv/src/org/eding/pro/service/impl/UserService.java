@@ -8,6 +8,7 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
 import org.eding.core.CoreCipher;
+import org.eding.core.anno.AuthRoleRequire;
 import org.eding.core.common.RETINFO;
 import org.eding.core.common.UserInfo;
 import org.eding.core.standard.BaseService;
@@ -76,6 +77,7 @@ public class UserService extends BaseService implements IUserService {
 	}
 
 	@Override
+	@AuthRoleRequire(roles = { "admin" })
 	public Map doLogin(Map inData) throws Exception {
 		Map retMap=new HashMap();
 		String name=	inData.get("name")==null?"":(String)inData.get("name");
@@ -105,6 +107,8 @@ public class UserService extends BaseService implements IUserService {
 		if(user!=null){
 			UserInfo userInfo=new UserInfo();
 			userInfo.setName(user.getName());
+			String[] testRoles={"admin","guest"};
+			userInfo.setRoles(testRoles);
 			JSONObject userJson=JSONObject.fromObject(userInfo);
 			retMap.put("userInfo",CoreCipher.encryptBasedDes(userJson.toString()));
 			retMap.put(RETINFO.RET_CODE	,RETINFO.RET_CODE_SUCCESS);

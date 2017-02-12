@@ -2,19 +2,17 @@ package org.eding.core.common;
 
 public class UserInfo {
 	private String name="";
-	private String roleString="";
+	private String[] roles;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getRoleString() {
-		return roleString;
+	public String[] getRoles() {
+		return roles;
 	}
-	public void setRoleString(String roleString) {
-		this.roleString = roleString;
+	public void setRoles(String[] roles) {
+		this.roles = roles;
 	}
-	
-	
 }
