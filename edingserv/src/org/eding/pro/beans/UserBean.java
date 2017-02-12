@@ -49,6 +49,7 @@ public class UserBean extends BaseBean{
 		
 		public Map doLogin(){
 			try{
+				Map a1 = inData.get();
 				 Map retMap=userService.doLogin(inData.get());
 				if(retMap.get(RETINFO.RET_CODE).equals(RETINFO.RET_CODE_SUCCESS)){
 					Cookie cookie=new Cookie("userInfo", (String) retMap.get("userInfo"));
@@ -80,10 +81,11 @@ public class UserBean extends BaseBean{
 		
 		public Map test(){
 			int k=(int) (Math.random()*100);
-			for(int m=1;m<10;m++){
+			for(int m=1;m<3;m++){
 				try{
-					Thread.sleep(1000);
-					System.out.println("当前"+Thread.currentThread()+"::::"+k);
+					Thread.sleep(500);
+					System.out.print("当前"+Thread.currentThread()+"::::"+k);
+					System.out.println(inData.get());
 				}catch(Exception e){
 					e.printStackTrace();
 				}
@@ -91,7 +93,7 @@ public class UserBean extends BaseBean{
 			}
 //			System.out.println(inData);
 			Map retMap=new HashMap();
-			retMap.put("name", "继续asdfg了");
+			retMap.put("name", "执行完毕");
 			return retMap;
 		}
 	

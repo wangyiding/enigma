@@ -335,7 +335,7 @@ function ajx(path,params){
  			url:   url+path+".c",
  			data: {params:inData},
  			dataType : "json",
- 			async :true,
+ 			async :false,
  				success: function(e){
  				this.bk=bk=e;
  				},
