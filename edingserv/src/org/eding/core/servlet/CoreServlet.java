@@ -80,7 +80,7 @@ public class CoreServlet extends HttpServlet {
 		 	if(request.getCookies()!=null){
 		 		for(Cookie cookie:request.getCookies()){
 		 			if(cookie.getName().equals("userInfo")){
-		 				inData.put("userInfo", CoreCipher.decryptBasedDes(URLDecoder.decode(cookie.getValue(),"utf-8")));
+		 				inData.put("userInfo", CoreCipher.decryptBasedDes(cookie.getValue()));
 		 			}
 				}
 		 	}
