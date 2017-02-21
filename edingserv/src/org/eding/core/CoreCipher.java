@@ -1,4 +1,5 @@
 package org.eding.core;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.security.SecureRandom;
@@ -61,7 +62,8 @@ public class CoreCipher {
 	            // 解密对象  
 	            Cipher cipher = Cipher.getInstance("DES");  
 	            cipher.init(Cipher.DECRYPT_MODE, key, sr);  
-	            // 把字符串解码为字节数组，并解密  
+	            // 把字符串解码为字节数组，并解密 
+	            cryptData=URLDecoder.decode(cryptData, "utf-8");
 	            decryptedData = new String(cipher.doFinal(new sun.misc.BASE64Decoder().decodeBuffer(cryptData)));  
 	        } catch (Exception e) {  
 //	            log.error("解密错误，错误信息：", e);  
