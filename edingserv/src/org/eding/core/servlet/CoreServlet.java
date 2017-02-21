@@ -60,7 +60,12 @@ public class CoreServlet extends HttpServlet {
 		uri=uri.substring(uri.lastIndexOf("/"));
 		uri=uri.substring(0,uri.lastIndexOf(SUFFIX)).replaceAll("/", "");
 		JSONObject jsonIn=JSONObject.fromObject(request.getParameter("params"));
-		Map inData=jsonIn;
+		Map inData;
+		if(jsonIn!=null){
+			inData=jsonIn;
+		}else{
+			inData=new HashMap();
+		}
 		ApplicationContext context=WebApplicationContextUtils.getWebApplicationContext(request.getSession().getServletContext());
 		String[] pathInfo=uri.split("\\.");
 		String beanName;
