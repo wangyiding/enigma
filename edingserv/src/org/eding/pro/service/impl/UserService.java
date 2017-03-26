@@ -77,7 +77,7 @@ public class UserService extends BaseService implements IUserService {
 	}
 
 	@Override
-	@AuthRoleRequire(roles = { "admin" })
+	//@AuthRoleRequire(roles = { "admin","testrole"})
 	public Map doLogin(Map inData) throws Exception {
 		Map retMap=new HashMap();
 		String name=	inData.get("name")==null?"":(String)inData.get("name");
@@ -122,6 +122,7 @@ public class UserService extends BaseService implements IUserService {
 	}
 
 	@Override
+	@AuthRoleRequire(roles = { "admin"})
 	public Map checkName(Map inData) throws Exception {
 		Map retMap=new HashMap();
 		String name=	inData.get("name")==null?"":(String)inData.get("name");

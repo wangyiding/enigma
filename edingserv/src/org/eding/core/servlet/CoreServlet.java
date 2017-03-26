@@ -61,7 +61,7 @@ public class CoreServlet extends HttpServlet {
 		uri=uri.substring(0,uri.lastIndexOf(SUFFIX)).replaceAll("/", "");
 		JSONObject jsonIn=JSONObject.fromObject(request.getParameter("params"));
 		Map inData;
-		if(jsonIn==null){
+		if(jsonIn.isNullObject()){
 			inData=new HashMap();
 		}else{
 			inData=jsonIn;
