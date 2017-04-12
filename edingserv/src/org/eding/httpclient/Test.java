@@ -12,6 +12,8 @@ public class Test {
 		Map params=new HashMap();
 		params.put("name", "马云");
 		Response res = rc.post("http://127.0.0.1:8080/eds/edingbean.test.c", params);
+		//测试git
+		
 		System.out.println(res.getBody());
 	}
 }
